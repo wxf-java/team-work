@@ -1,11 +1,11 @@
 <%--
   Created by IntelliJ IDEA.
   User: wherohero
-  Date: 2020/6/19
-  Time: 16:45
+  Date: 2020/6/20
+  Time: 16:56
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!doctype html>
 <html class="x-admin-sm">
 <head>
@@ -71,7 +71,7 @@
                 <dd>
                     <a onclick="xadmin.open('切换帐号','http://www.baidu.com')">切换帐号</a></dd>
                 <dd>
-                    <a href="./login.jsp">退出</a></dd>
+                    <a href="./login.html">退出</a></dd>
             </dl>
         </li>
         <li class="layui-nav-item to-index">
@@ -86,8 +86,8 @@
         <ul id="nav">
             <li>
                 <a href="javascript:;">
-                    <i class="iconfont left-nav-li" lay-tips="会员管理">&#xe6b8;</i>
-                    <cite>会员管理</cite>
+                    <i class="iconfont left-nav-li" lay-tips="体检主界面">&#xe6b8;</i>
+                    <cite>体检主界面</cite>
                     <i class="iconfont nav_right">&#xe697;</i></a>
                 <ul class="sub-menu">
                     <li>
@@ -96,19 +96,19 @@
                             <cite>统计页面</cite></a>
                     </li>
                     <li>
-                        <a onclick="xadmin.add_tab('会员列表(静态表格)','member-list.html')">
+                        <a onclick="xadmin.add_tab('建卡(空卡)','cards-add.jsp')">
                             <i class="iconfont">&#xe6a7;</i>
-                            <cite>会员列表(静态表格)</cite></a>
+                            <cite>建卡(空卡)</cite></a>
                     </li>
                     <li>
-                        <a onclick="xadmin.add_tab('会员列表(动态表格)','member-list1.html',true)">
+                        <a onclick="xadmin.add_tab('开单（录入信息）','billing-add.jsp',true)">
                             <i class="iconfont">&#xe6a7;</i>
-                            <cite>会员列表(动态表格)</cite></a>
+                            <cite>开单（录入信息）</cite></a>
                     </li>
                     <li>
-                        <a onclick="xadmin.add_tab('会员删除','member-del.html')">
+                        <a onclick="xadmin.add_tab('体检人员信息','atient-information-list.jsp')">
                             <i class="iconfont">&#xe6a7;</i>
-                            <cite>会员删除</cite></a>
+                            <cite>体检人员（开单信息）</cite></a>
                     </li>
                     <li>
                         <a href="javascript:;">

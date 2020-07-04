@@ -50,21 +50,48 @@ public class ExaminationController {
     @RequestMapping("updateCards")
     @ResponseBody
     public String updateCards(Cards cards) {
-        Integer integer = examinationService.updateCards(cards);
-        if (integer > 0) {
-            System.out.println(integer);
+        Integer integer = examinationService.updateCards(cards);//开单
+        Integer integer1 = examinationService.updateState(cards.getCid());//结算
+        if (integer > 0 && integer1 > 0) {
             return "succ";
+        } else {
+            return "err";
         }
-        return "err";
     }
 
-    //查询所有卡片
+    //判断是否结算成功
+    @RequestMapping("updateState")
+    public void updateState(Integer cid, HttpServletResponse response) {
+        Integer integer = examinationService.updateState(cid);
+        try {
+            if (integer > 0) {
+                response.getWriter().print("true");
+            } else {
+                response.getWriter().print("false");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    //查询所有卡片（空卡）
     @RequestMapping("selectAllCards")
     public ModelAndView selectAllCards(Cards cards) {
         List<Cards> cards1 = examinationService.selectAllCards();
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("list", cards1);
         modelAndView.setViewName("cards-add");
+        return modelAndView;
+    }
+
+    //查询体检人员信息（开单信息）
+    @RequestMapping("nonemptyCards")
+    public ModelAndView nonemptyCards(String all,Cards cards) {
+        List<Cards> cards1 = examinationService.nonemptyCards(all);
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("nonemptylist", cards1);
+        modelAndView.setViewName("atient-information-list");
         return modelAndView;
     }
 }

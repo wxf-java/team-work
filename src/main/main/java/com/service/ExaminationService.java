@@ -16,4 +16,10 @@ public interface ExaminationService {
 
     //查询所有卡片
     List<Cards> selectAllCards();
+
+    //查询体检人员信息（开单信息）
+    List<Cards> nonemptyCards(String all);
+
+    //结算、更新状态
+    Integer updateState(Integer cid);
 }

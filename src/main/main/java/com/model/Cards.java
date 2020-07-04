@@ -16,22 +16,25 @@ public class Cards {
     private double cprice;
     private Integer teid;
     private String prid;
+    private String state;
 
     public Cards() {
 
     }
 
-    public Cards(Integer cid, String cardsid, String cname, Date cdate, String sex, Integer age, String telephone, double cprice, Integer teid, String prid) {
+    public Cards(Integer cid, String cardsid, String cname, Date cdate, String sex, Integer age, String telephone, double cprice, Integer teid, String prid, String state) {
         this.cid = cid;
         this.cardsid = cardsid;
         this.cname = cname;
         this.cdate = cdate;
         this.sex = sex;
         this.age = age;
+
         this.telephone = telephone;
         this.cprice = cprice;
         this.teid = teid;
         this.prid = prid;
+        this.state = state;
     }
 
     public Integer getCid() {
@@ -114,6 +117,14 @@ public class Cards {
         this.prid = prid;
     }
 
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
     @Override
     public String toString() {
         return "Cards{" +
@@ -127,6 +138,7 @@ public class Cards {
                 ", cprice=" + cprice +
                 ", teid=" + teid +
                 ", prid='" + prid + '\'' +
+                ", state='" + state + '\'' +
                 '}';
     }
 }

@@ -5,6 +5,7 @@ import com.model.Cards;
 import com.service.ExaminationService;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -37,8 +38,24 @@ public class ExaminationServiceimpl implements ExaminationService {
     }
 
     //查询所有卡片
+    @Override
     public List<Cards> selectAllCards() {
         List<Cards> cards = examinationMapper.selectAllCards();
         return cards;
+    }
+
+    //查询体检人员信息（开单信息）
+    @Override
+    public List<Cards> nonemptyCards(String all) {
+        List<Cards> cards = examinationMapper.nonemptyCards(all);
+        return cards;
+    }
+
+    //结算、更新状态
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public Integer updateState(Integer cid) {
+        Integer integer = examinationMapper.updateState(cid);
+        return integer;
     }
 }
